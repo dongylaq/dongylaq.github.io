@@ -12,6 +12,8 @@ header-img: "img/title.jpeg"
 </select> -->
 
 <!-- Chinese Version -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
 <div class="en post-container">
         <h2>Research Overview</h2>
         <hr class="hr0">
@@ -46,10 +48,15 @@ header-img: "img/title.jpeg"
             
         <li>Designed the stochastic gradient descent algorithm for Entropy-Regularized method in the stochastic analysis framework and realized a library by C++, refering to github repositories for detail.</li>
             <ul>
-                <li>The gradients are evaluated by stochastic analysis, spefically, Girsanov theorem and martingales. The C++ library uses BFGS algorithm, a quasi-Newton method, to optimize control parameters.</li>
-                <li>The benchmark is a barrier crossing problem where a Brownian particle is trapped by a double-well potential whose barrier height is greater than thermal fluctuation (Fig 1). The physically allowed external interaction is assumed to be a amplitude tunable laser array equally spaced between two basins in which particle can cross the barrier.</li>
+                <li>Gradients are calculated by stochastic analysis, spefically, Girsanov theorem and martingales, and numerically evaluated by Monte Carlo. The C++ library uses BFGS algorithm, a quasi-Newton method, to optimize control parameters.</li>
             </ul>
         <li>Proved that Entropy-Regularized method generalizes Langevin bridge to more complicated situations and their asymptotic equivalence as regularized strength approach 0, namely, without constraint.</li>
+    </ul>
+    
+    <h5>Benchmark</h5>
+    <ul>
+        <li>The benchmark is a barrier crossing problem where a Brownian particle is trapped by a double-well potential whose barrier height is greater than thermal fluctuation (Fig 1). The physically allowed external interaction is assumed to be laser array equally spaced between two basins with tunable amplitude.</li>
+        <li>Optimal control raises the initial site to gain the crossing. The smaller regularized strenth ($\lambda$) is, the larger an optimal control policy will be generated, coincident with expectation that higher utility requires higher price.</li>
     </ul>
     <div class="row">
         <div class="col-xs-6">
