@@ -44,15 +44,19 @@ header-img: "img/title.jpeg"
             </ul>
         </li>
             
-        <li>Designed the stochastic gradient descent algorithm for ER in the stochastic analysis framework;</li>
-        <li>Realized ER in deterministic time horizon by C++ and proved that ER generalizes Langevin bridge to more complicated situations.</li>
+        <li>Designed the stochastic gradient descent algorithm for Entropy-Regularized method in the stochastic analysis framework and realized a library by C++, refering to github repositories for detail.</li>
+            <ul>
+                <li>The gradients are evaluated by stochastic analysis, spefically, Girsanov theorem and martingales. The C++ library uses BFGS algorithm, a quasi-Newton method, to optimize control parameters.</li>
+                <li>The benchmark is a barrier crossing problem where a Brownian particle is trapped by a double-well potential whose barrier height is greater than thermal fluctuation (Fig 1). The physically allowed external interaction is assumed to be a amplitude tunable laser array equally spaced between two basins in which particle can cross the barrier.</li>
+            </ul>
+        <li>Proved that Entropy-Regularized method generalizes Langevin bridge to more complicated situations and their asymptotic equivalence as regularized strength approach 0, namely, without constraint.</li>
     </ul>
     <div class="row">
         <div class="col-xs-6">
             <div class="thumbnail">
                 <img src="/img/rsc/optcontrol-illustration.png" width="560"  height="480">
                     <div class="caption">
-                        Illustration of barrier crossing process with barrier height greater than thermal fluctuation. The control protocol aims to centralize particles around the other basin, namely, changing the position probability distribution from green one to red one.
+                        Fig 1. Illustration of barrier crossing process with barrier height greater than thermal fluctuation. The control protocol aims to centralize particles around the other basin, namely, changing the position probability distribution from green one to red one.
                     </div>
             </div>
         </div>
@@ -60,7 +64,7 @@ header-img: "img/title.jpeg"
             <div class="thumbnail">
                 <img src="/img/rsc/optcontrol-algorithm.png" width="500" height="350">
                     <div class="caption">
-                        Flow diagram of the algorithm.
+                        Fig 2. Flow diagram of the algorithm.
                     </div>
                     </div>
         </div>
