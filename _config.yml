@@ -61,8 +61,8 @@ kramdown:
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: 238f8916ddb2d6aaf4a7                            #生成的clientID
-  clientSecret: ce41e19a261ec8580b55b291e9717a5c4ebe6b22    #生成的clientSecret
+  clientID: 87d7a43294c93e849b69                            #生成的clientID
+  clientSecret: 265fcd45a648ccaf5ed0fc596bc87c1f0e6050e1    #生成的clientSecret
   repo: dongylaq.github.io    #仓库名称
   owner: dongylaq    #github用户名
   admin: dongylaq
