@@ -6,7 +6,7 @@ email: dongyl@berkeley.edu
 description: "Welcome to the homepage of Yulong Dong."
 keyword: "Complex System, Quantum Control, Stochastic Control"
 url: "http://dongylaq.github.io"          # your host, for absolute URL
-baseurl: "/about"      # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/dongylaq/dongylaq.github.io.git" # you code repository
 
 # Sidebar settings
