@@ -3,6 +3,7 @@ title: Yulong Dong's Homepage
 SEOTitle: Homepage | Yulong Dong
 header-img: img/title.png
 email: dongyl@berkeley.edu
+address: 853 Evans Hall, UC Berkeley
 description: "Welcome to the homepage of Yulong Dong."
 keyword: "Complex System, Quantum Control, Stochastic Control"
 url: "http://dongylaq.github.io"          # your host, for absolute URL
@@ -11,7 +12,7 @@ github_repo: "https://github.com/dongylaq/dongylaq.github.io.git" # you code rep
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "853 Evans Hall, UC Berkeley"
+sidebar-about-description: ""
 sidebar-avatar: /img/IMG_0144.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
