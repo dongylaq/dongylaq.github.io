@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://dongylaq.github.io/sitemap.xml
