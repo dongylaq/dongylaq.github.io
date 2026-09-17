@@ -113,6 +113,11 @@ scss << <<~CSS
     white-space: nowrap;
   }
 
+  .about-main > h2 {
+    margin-top: 2.6rem;
+    margin-bottom: 1.1rem;
+  }
+
   .qsppack-highlight figure {
     margin-bottom: 0;
   }
@@ -142,6 +147,10 @@ scss << <<~CSS
 
     .about-sidebar .profile-social {
       text-align: center;
+    }
+
+    .about-main > h2 {
+      margin-top: 2.2rem;
     }
   }
 
