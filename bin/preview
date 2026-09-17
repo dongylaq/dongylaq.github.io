@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export RBENV_ROOT="${RBENV_ROOT:-$HOME/.rbenv}"
+export PATH="$RBENV_ROOT/shims:/usr/local/bin:/usr/bin:/bin:$PATH"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+arch -x86_64 bundle exec jekyll build
+./bin/compile-css
+ruby -run -e httpd _site -b 127.0.0.1 -p "${PORT:-4000}"

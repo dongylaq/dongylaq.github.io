@@ -1,0 +1,30 @@
+"Nat. Commun.":
+  url: https://www.nature.com/ncomms/
+  color: "#0b6e4f"
+
+"SISC":
+  url: https://www.siam.org/publications/siam-journals/siam-journal-on-scientific-computing-sisc/
+  color: "#1f77b4"
+
+"Quantum":
+  url: https://quantum-journal.org/
+  color: "#7b2cbf"
+
+"PRX Quantum":
+  url: https://journals.aps.org/prxquantum/
+  color: "#b71c1c"
+
+"npj QI":
+  url: https://www.nature.com/npjqi/
+  color: "#006d77"
+
+"PRA":
+  url: https://journals.aps.org/pra/
+  color: "#00369f"
+
+"IFAC":
+  url: https://www.ifac-control.org/
+  color: "#595959"
+
+"Preprint":
+  color: "#828282"

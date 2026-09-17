@@ -1,0 +1,158 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export RBENV_ROOT="${RBENV_ROOT:-$HOME/.rbenv}"
+export PATH="$RBENV_ROOT/shims:/usr/local/bin:/usr/bin:/bin:$PATH"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+core_path="$(arch -x86_64 bundle info --path al_folio_core | tail -n 1)"
+tmp_scss="$(mktemp /tmp/al-folio-main.XXXXXX)"
+tmp_sass_dir="$(mktemp -d /tmp/al-folio-sass.XXXXXX)"
+cp "$core_path"/_sass/*.scss "$tmp_sass_dir"/
+
+ruby - "$tmp_sass_dir/_variables.scss" <<'RUBY'
+path = ARGV.fetch(0)
+scss = File.read(path, encoding: "UTF-8")
+scss = scss.sub(/\$purple-color:\s*#[0-9a-fA-F]{6}\s*!default;/, "$purple-color: #1f77b4 !default;")
+File.write(path, scss, encoding: "UTF-8")
+RUBY
+
+ruby - "$tmp_sass_dir/_themes.scss" <<'RUBY'
+path = ARGV.fetch(0)
+scss = File.read(path, encoding: "UTF-8")
+scss = scss.gsub(/color\.channel\((v\.\$[\w-]+),\s*"red",\s*v\.\$space:\s*rgb\)/, 'red(\1)')
+scss = scss.gsub(/color\.channel\((v\.\$[\w-]+),\s*"green",\s*v\.\$space:\s*rgb\)/, 'green(\1)')
+scss = scss.gsub(/color\.channel\((v\.\$[\w-]+),\s*"blue",\s*v\.\$space:\s*rgb\)/, 'blue(\1)')
+File.write(path, scss, encoding: "UTF-8")
+RUBY
+
+ruby - "$core_path/assets/css/main.scss" "$tmp_scss" <<'RUBY'
+source, target = ARGV
+scss = File.read(source, encoding: "UTF-8")
+scss = scss.sub(/\A---\s*\n.*?\n---\s*\n/m, "")
+scss = scss.gsub(/{{\s*site\.max_width\s*\|\s*default:\s*"930px"\s*}}/, "930px")
+scss << <<~CSS
+
+  /* Local preview/site polish. */
+  .post .profile {
+    max-width: 260px;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .post .profile img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about-layout {
+    margin-top: 1rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 2.25rem;
+    align-items: start;
+  }
+
+  .about-profile-left {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .about-profile-left .about-sidebar {
+    grid-column: 1;
+  }
+
+  .about-profile-left .about-main {
+    grid-column: 2;
+  }
+
+  .about-sidebar {
+    font-family: inherit;
+    line-height: 1.45;
+  }
+
+  .about-sidebar figure {
+    margin-bottom: 0.85rem;
+  }
+
+  .about-sidebar img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .about-sidebar .more-info {
+    font-family: inherit;
+    margin-top: 0;
+  }
+
+  .about-sidebar .more-info p {
+    display: block;
+    margin: 0 0 0.85rem;
+  }
+
+  .about-sidebar .profile-name {
+    font-size: 1.08rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .about-sidebar .profile-social {
+    margin-top: 0.25rem;
+    text-align: left;
+  }
+
+  .about-sidebar .profile-social .contact-icons {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  .qsppack-highlight figure {
+    margin-bottom: 0;
+  }
+
+  .qsppack-highlight img {
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .post .profile {
+      float: none !important;
+      max-width: 220px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .about-sidebar {
+      max-width: 200px;
+      margin: 0 auto;
+    }
+
+    .about-sidebar .profile-social {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .qsppack-highlight figure {
+      margin-bottom: 1rem;
+    }
+
+    .qsppack-highlight img {
+      max-width: 160px;
+    }
+  }
+CSS
+File.write(target, scss, encoding: "UTF-8")
+RUBY
+
+mkdir -p _site/assets/css
+./node_modules/.bin/sass --load-path "$tmp_sass_dir" --style=compressed "$tmp_scss" _site/assets/css/main.css
