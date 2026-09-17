@@ -6,7 +6,11 @@ export PATH="$RBENV_ROOT/shims:/usr/local/bin:/usr/bin:/bin:$PATH"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-core_path="$(arch -x86_64 bundle info --path al_folio_core | tail -n 1)"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  core_path="$(arch -x86_64 bundle info --path al_folio_core | tail -n 1)"
+else
+  core_path="$(bundle info --path al_folio_core | tail -n 1)"
+fi
 tmp_scss="$(mktemp /tmp/al-folio-main.XXXXXX)"
 tmp_sass_dir="$(mktemp -d /tmp/al-folio-sass.XXXXXX)"
 cp "$core_path"/_sass/*.scss "$tmp_sass_dir"/
