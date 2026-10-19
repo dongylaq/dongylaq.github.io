@@ -38,7 +38,7 @@ My research brings ideas and tools from applied mathematics and learning theory 
 
 - Quantum algorithms for scientific computing, including numerical linear algebra and quantum chemistry applications
 - Efficient and robust methods for quantum parameter estimation, learning, and calibration
-- Statistical learning and generalization theory for quantum machine learning
+- Scientific quantum machine learning, including learning- and optimization-theoretic approaches to learning thermal states and generalization theory for quantum machine learning
 
 ## Teaching
 
@@ -61,7 +61,7 @@ My research brings ideas and tools from applied mathematics and learning theory 
 2. [A Quantum Hamiltonian Simulation Benchmark](https://www.nature.com/articles/s41534-022-00636-x), *npj Quantum Information*, 2022
 3. [Optimal Low-Depth Quantum Signal-Processing Phase Estimation](https://www.nature.com/articles/s41467-025-56724-x), *Nature Communications*, 2025
 4. [In Situ Quantum Analog Pulse Characterization via Structured Signal Processing](https://arxiv.org/abs/2512.03193), preprint, 2025
-5. [A Theory of Finite-Noise Optima and Generalization in Quantum Machine Learning](https://arxiv.org/abs/2608.24229), preprint, 2026
+5. [Quantum score matching with applications to learning thermal states](https://arxiv.org/abs/2609.28391), preprint, 2026
 
 [Full publication list]({% link _pages/publications.md %})
 
