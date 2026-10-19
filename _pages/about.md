@@ -37,7 +37,7 @@ Before joining the University of Michigan in 2026, I was a Visiting Research Sci
 My research brings ideas and tools from applied mathematics and learning theory to advance the algorithmic and engineering frontiers of quantum computing and quantum information. I currently focus on three directions:
 
 - Quantum algorithms for scientific computing, including numerical linear algebra and quantum chemistry applications
-- Efficient and robust methods for quantum parameter estimation, learning, and calibration
+- Efficient and robust methods for quantum parameter estimation, learning, and calibration, including mathematical analyses, algorithmic innovation, and numerical solvers
 - Scientific quantum machine learning, including learning- and optimization-theoretic approaches to learning thermal states and generalization theory for quantum machine learning
 
 ## Teaching
